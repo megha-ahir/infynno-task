@@ -1,0 +1,30 @@
+.main {
+    max-height: 97vh;
+}
+
+.dashboardContiner {
+    scrollbar-width: none;
+}
+
+.searchContainer {
+    position: relative;
+}
+
+.searchIcon {
+    position: absolute;
+    top: 50%;
+    left: 0.7rem;
+    transform: translateY(-50%);
+}
+
+@media (max-width: 1024px) {
+    .main {
+        max-height: 100%;
+        width: 100%;
+    }
+
+    .dashboardContiner {
+        margin-top: 4rem;
+    }
+
+}

@@ -1,0 +1,39 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "title": "Here are the top 100 players and managers",
+            "date": "11 oct 2023, 06:00 AM",
+            "image": "image1.png",
+            "saved": false
+        },
+        {
+            "id": 2,
+            "title": "Results and scores from the Premier League....!!",
+            "date": "10 oct 2023, 09:00 PM ",
+            "image": "image2.png",
+            "saved": true
+        },
+        {
+            "id": 3,
+            "title": "Join or start a competition now!",
+            "date": "10 oct 2023, 02:40 PM",
+            "image": "image3.png",
+            "saved": true
+        },
+        {
+            "id": 4,
+            "title": "Results and scores from the Premier League....!!",
+            "date": "09 oct 2023, 08:12 aM",
+            "image": "image4.png",
+            "saved": false
+        },
+        {
+            "id": 5,
+            "title": "Results and scores from the Premier League....!!",
+            "date": "09 oct 2023, 02:00 PM",
+            "image": "image5.png",
+            "saved": false
+        }
+    ]
+}
