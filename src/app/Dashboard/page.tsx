@@ -7,7 +7,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { useQuery } from '@tanstack/react-query'
 import api from '@/lib/api'
 import moment from 'moment'
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
 import { Calendar } from '@/components/ui/calendar'
 import { Separator } from '@/components/ui/separator'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
@@ -16,7 +15,6 @@ import { PopoverClose } from '@radix-ui/react-popover'
 const Dashboard: FC = () => {
 
     const [selectedDate, setSelectedDate] = useState<Date>(new Date());
-    const [calendarOpen, setCalendarOpen] = useState(false);
     const [dateLabels, setDateLabels] = useState<DateLabels[]>()
     const [isLoading, setIsLoading] = useState(true);
     const [expandedItemId, setExpandedItemId] = useState<number | null>(null);
@@ -90,13 +88,11 @@ const Dashboard: FC = () => {
 
     useEffect(() => {
         generateDateRange(selectedDate);
-
-        const timer = setTimeout(() => {
-            setIsLoading(false);
-        }, 500);
-        return () => clearTimeout(timer);
-
     }, [])
+
+    useEffect(() => {
+        setIsLoading(dateLabels ? false : true)
+    }, [dateLabels])
 
     useEffect(() => {
         refetch()
@@ -190,7 +186,7 @@ const Dashboard: FC = () => {
                             <Popover>
                                 <PopoverTrigger>
                                     <div className="tab flex min-w-max items-center px-2 py-1 cursor-pointer rounded-xl border-theme justify-center"
-                                        onClick={() => setCalendarOpen(true)}>
+                                    >
                                         <Image src={require('@/assets/icons/calendar.png')} height={28} width={28} alt='Calender' />
                                         <p className='grid text-start ps-2'>
                                             View <span>Calendar</span></p>
@@ -208,29 +204,6 @@ const Dashboard: FC = () => {
                                         /></PopoverClose>
                                 </PopoverContent>
                             </Popover>
-                            {/* {calendarOpen && (
-                                <Dialog open={calendarOpen} onOpenChange={() => setCalendarOpen(false)}>
-                                    <DialogContent className="sm:max-w-[425px]">
-                                        <DialogHeader>
-                                            <DialogTitle>Select Date</DialogTitle>
-                                        </DialogHeader>
-                                        <div className="grid gap-4 py-4">
-                                            <Calendar
-                                                mode="single"
-                                                selected={new Date()}
-                                                onSelect={(date) => {
-                                                    setSelectedDate(date as Date ?? new Date());
-                                                    setCalendarOpen(false);
-                                                    generateDateRange(date as Date);
-                                                }}
-                                                className="rounded-md border"
-                                            />
-                                        </div>
-
-                                    </DialogContent>
-                                </Dialog>
-                            )} */}
-
                         </div>
 
                         <div className="flex flex-col gap-2 overflow-y-scroll scrollbar-none">

@@ -15,7 +15,7 @@ JSON Handling: Dummy JSON data for simulating a news section
 ## Installation
 
 ```bash
-git clone https://github.com/megha-ahir/task
+git clone https://github.com/megha-ahir/infynno-task
 
 ```
 
